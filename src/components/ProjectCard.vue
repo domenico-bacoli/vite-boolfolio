@@ -60,8 +60,8 @@ export default {
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     border: none;
-    padding: 20px;
-    height: 100%;
+    padding: 10px;
+    min-height: 100%;
 
     .thumb{ 
         padding-bottom: 14px;
@@ -86,16 +86,17 @@ export default {
 
         .technologies{
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
             gap: 0.4em; 
             width: 100%;
             overflow-x: scroll; 
-            padding: 10px;    
+            padding: 10px;
         }
 
         .description{
             font-size: 0.9em;
+            padding: 0 20px;
         }
     }
 }

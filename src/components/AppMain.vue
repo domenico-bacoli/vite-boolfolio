@@ -53,7 +53,8 @@ export default {
   display: flex;
   flex-flow: row wrap;
   gap: 16px;
-  overflow-x: scroll;
+  padding: 0 10px;
+
 }
 
 .loading {

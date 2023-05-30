@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import AppMain from './components/AppMain.vue';
+import AppHeader from './components/AppHeader.vue';
 
 export default {
   name: 'App',
@@ -12,7 +12,7 @@ export default {
   },
 
   components: {
-    AppMain,
+    AppHeader,
   },
 
 }
@@ -20,7 +20,8 @@ export default {
 </script>
 
 <template>
-  <AppMain></AppMain>
+  <AppHeader></AppHeader>
+  <router-view></router-view>
 </template>
 
 <style lang="scss" scoped>

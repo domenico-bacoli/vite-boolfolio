@@ -43,8 +43,9 @@ export default {
             <div class="technologies">
                 <span v-for="technology in project.technologies" class="badge rounded-pill" :style="{backgroundColor: technology.color}">{{ technology.name }}</span>
             </div>
-            <div class="description">{{ shortDescription }}</div>
+            <!-- <div class="description">{{ shortDescription }}</div> -->
             <div class="button-more">
+                <router-link :to="{name: 'projects.show', params: {slug: project.slug}}" class="btn btn-primary">More</router-link>
                 <!-- <a href="{{route('admin.projects.show', $project->slug)}}"><button class="btn btn-primary">More</button></a> -->
             </div>
         </div>
@@ -79,10 +80,12 @@ export default {
         align-items: center;
         gap: 16px;
         width: 100%;
+        
 
         .title{
             font-weight: bold;
             text-transform: uppercase;
+            color: $text-color;
         }
 
         .technologies{
@@ -98,6 +101,7 @@ export default {
         .description{
             font-size: 0.9em;
             padding: 0 20px;
+            color: $text-color;
         }
     }
 }

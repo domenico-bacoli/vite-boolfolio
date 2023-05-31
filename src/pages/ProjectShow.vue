@@ -58,6 +58,10 @@ export default {
                 <img :src="projectImage" alt="immagine progetto">
             </div>
             <h1>{{project.title}}</h1>
+            <h4>{{ project.type ? project.type.name : 'Nessuna' }}</h4>
+            <div class="technologies">
+                <span v-for="technology in project.technologies" class="badge rounded-pill" :style="{backgroundColor: technology.color}">{{ technology.name }}</span>
+            </div>
             <p>{{ project.description }}</p>
         </div> 
         <div v-else>
@@ -86,15 +90,25 @@ export default {
 
         .project-image{
             margin: 40px 0;
+            text-align: center;
             
             img{
-            width: 300px;
+            width: 400px;
             object-fit: cover;
             border-radius: 20px;
             // overflow: hidden;
             }
         }
+
+        .technologies{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.4em; 
+            padding: 10px;
+        }
     }
+
 
 
 

@@ -36,18 +36,20 @@ export default {
     <div class="card-project">
         <div class="thumb">
             <img :src="thumb" alt="anteprima progetto">
+            <div class="overlay"></div>
+            <div class="title">{{ project.title}}</div>
+            <div class="button-more">
+                <router-link :to="{name: 'projects.show', params: {slug: project.slug}}">More</router-link>
+                <!-- <a href="{{route('admin.projects.show', $project->slug)}}"><button>More</button></a> -->
+            </div>
         </div>
         <div class="card-details">
-            <div class="title">{{ project.title}}</div>
-            <small class="type">Tipologia: {{ project.type ? project.type.name : 'Nessuna' }}</small>
-            <div class="technologies">
-                <span v-for="technology in project.technologies" class="badge rounded-pill" :style="{backgroundColor: technology.color}">{{ technology.name }}</span>
-            </div>
-            <!-- <div class="description">{{ shortDescription }}</div> -->
-            <div class="button-more">
-                <router-link :to="{name: 'projects.show', params: {slug: project.slug}}" class="btn btn-primary">More</router-link>
-                <!-- <a href="{{route('admin.projects.show', $project->slug)}}"><button class="btn btn-primary">More</button></a> -->
-            </div>
+            <small class="type">Type: {{ project.type ? project.type.name : 'Nessuna' }}</small>
+            <!-- <div class="technologies">
+                <span v-for="technology in project.technologies">{{ technology.name }}</span>
+            </div> -->
+            <div class="description">{{ shortDescription }}</div>
+
         </div>
     </div>
 </template>
@@ -58,19 +60,64 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: calc(100% / 4 - (16px / 4 * 3));
+    width: calc(100% / 3 - (50px / 3 * 2));
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     border: none;
-    padding: 14px;
-    min-height: 100%;
+    cursor: pointer;
 
-    .thumb{ 
-        padding-bottom: 14px;
+    &:hover .thumb .button-more{
+        opacity: 1;
+    }
+    .thumb{
+        position: relative;
+        height: 200px;
+        width: 100%;
+
         img{
+            height: 100%;
             width: 100%;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 20px 20px 0 0;
+        }
+    }
+
+    .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px 20px 0 0;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(70, 70, 70, 0) 70%);
+    }
+
+    .title{
+            position: absolute;
+            bottom: 14px;
+            left: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: white;
+            letter-spacing: 0.1ch;
+            font-size: 1.1em;
+    }
+
+    .button-more{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        background-color: white;
+        padding: 10px 20px;
+        font-weight: 600;
+        border-radius: 20px;
+        transition: opacity 0.4s ease-in-out;
+
+        a{
+            text-decoration: none;
+            color: $text-color;
         }
     }
 
@@ -78,29 +125,25 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 16px;
+        gap: 12px;
         width: 100%;
-        
+        padding: 10px 20px 30px;
 
-        .title{
-            font-weight: bold;
-            text-transform: uppercase;
-            color: $text-color;
+        .type{
+            font-weight: 600;
         }
 
         .technologies{
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 0.4em; 
+            gap: 10px; 
             width: 100%;
             overflow-x: scroll; 
-            padding: 10px;
         }
 
         .description{
-            font-size: 0.9em;
-            padding: 0 20px;
+            font-size: 0.8em;
             color: $text-color;
         }
     }

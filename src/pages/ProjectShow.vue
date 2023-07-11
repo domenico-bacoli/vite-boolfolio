@@ -29,7 +29,6 @@ export default {
     methods: {
         getProject() {
             axios.get('http://127.0.0.1:8000/api/projects/' + this.projectSlug).then(response => {
-                // console.log('project', response);
                 this.isLoading = false;
 
                 if(response.data.success) {
@@ -39,6 +38,9 @@ export default {
                 } else {
                     this.projectFound = false
                 }
+
+                // cambio il titolo alla pagina
+                document.title = 'Boolfolio - ' + this.project.title;
             });
         }
     }

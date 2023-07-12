@@ -26,6 +26,10 @@ export default defineComponent({
             },
             // 1024 and up
             1024: {
+                itemsToShow: 4.5,
+                snapAlign: 'start',
+            },
+            1200: {
                 itemsToShow: 5,
                 snapAlign: 'start',
             },
@@ -51,7 +55,10 @@ export default defineComponent({
         <div class="carousel__item">
             <div class="project-card">
                 <div class="project-thumb">
-                    <img :src="this.baseUrl + project.thumb" alt="project image">
+                    <img :src="this.baseUrl + project.thumb" alt="project image"> 
+                </div>
+                <div class="button-more">
+                    <router-link :to="{name: 'projects.show', params: {slug: project.slug}}">More</router-link>
                 </div>
             </div>
         </div>
@@ -83,7 +90,36 @@ export default defineComponent({
     
 
         .project-card{
+            position: relative;
             padding: 0 12px;
+
+            .button-more{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                background-color: white;
+                padding: 8px 18px;
+                border-radius: 20px;
+                font-weight: 600;
+                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+
+                a{
+                    text-decoration: none;
+                    color: $text-color;
+                }
+            }
+
+            &:hover img{
+                opacity: 0.3;
+                transform: scale(1.1);
+            }
+
+            &:hover .button-more{
+                opacity: 1;
+            }
 
             .project-thumb{
                 width: 100%;
@@ -97,6 +133,7 @@ export default defineComponent({
                     height: 100%;
                     object-fit: cover;
                     border-radius: 24px;
+                    transition: all 0.3s ease;
                 }
             }
         }
@@ -124,6 +161,40 @@ export default defineComponent({
         margin: 0;
     }
 
+}
+
+@media screen and (max-width: 768px) {
+    .my-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+        .project-card{
+            display: flex;
+            justify-content: center;
+            padding: 0 12px;
+
+            .button-more{
+                display: none;
+            }
+
+            .project-thumb{
+                width: 90%;
+                height: 240px;
+            }
+        }
+
+.fa-solid.fa-chevron-right {
+        font-size: 30px;
+        padding-left: 70px;
+    }
+
+    .fa-solid.fa-chevron-left {
+        font-size: 30px;
+        padding-right: 70px;
+    }
+
+}
 }
 
 

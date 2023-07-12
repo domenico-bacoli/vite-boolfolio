@@ -280,20 +280,192 @@ a{
     text-decoration: none;
 }
 
+
+@media screen and (max-width: 767px) {
+    .container{
+
+    .card-container{
+        display: flex;
+        flex-direction: column;
+
+        .about-me-card{
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px;
+
+            .left-side{
+                
+                .my-name{ 
+
+                    .name{
+
+                        h1{
+                            padding-top: 30px;
+                            font-size: 1.7em;
+                        } 
+                    }
+
+                    .grade{
+                        // padding: 14px 0;
+                        h5{
+                            font-size: .8em;
+                        }   
+                        
+                    }
+
+                    .contact-me-button{
+
+                        button{
+                            padding: 8px 20px;
+                            font-size: .8em;
+                        }
+                    }
+                }
+            }
+
+
+            .social-icon{
+                font-size: 2em;
+                width: 100%;
+                padding: 20px 40px;
+
+            }
+
+        }   
+    }
+
+    .projects-section{
+        padding: 0 10px;
+        .recent-projects{
+            padding: 30px 60px;
+
+            .projects-information{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1.4em;
+
+                h2{
+                    font-size: 0.8em;
+                    margin: 0;
+                }
+
+                button{
+                    padding: 6px 18px;
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+}
+}
+
+
+@media screen and ((min-width: 768px) and (max-width: 992px)) {
+    .container{
+
+    .card-container{
+
+        .about-me-card{
+            
+            .left-side{
+                .my-name{ 
+
+                    .name{
+
+                        h1{
+                            padding-top: 30px;
+                            font-size: 2.2em;
+                        } 
+                    }
+
+                    .grade{
+                        padding: 8px 0;
+
+                        h5{
+                            font-size: 1em;
+                        }
+                    }
+
+                    .contact-me-button{
+                        padding: 10px 0;
+                    }
+                }
+            }
+
+
+            .social-icon{
+                row-gap: 12px;
+                column-gap: 12px;
+                font-size: 1.8em;
+                width: 50%;
+                padding: 20px;
+
+
+                .icon-card{
+                    .icon-detail{
+                        padding-top: 3px;
+                    }
+
+                }
+
+                .about-me{
+
+                    img{
+                        width: 34px;
+                    }
+                }
+
+            }
+
+        }   
+    }
+
+    .projects-section{
+
+        .recent-projects{
+            padding: 20px 60px;
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            background-color: #f7f9fb;
+            background-image: linear-gradient(62deg, #f7f9fb 0%, #fbfbff 100%);
+
+
+
+            .projects-information{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: .6em;
+
+                h2{
+                    font-size: 1.1em;
+                    margin: 0;
+                }
+
+                button{
+                    padding: 6px 20px;
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+}
+}
+
+
 @media screen and ((min-width: 300px) and (max-width: 768px)) {
     .container{
+        height: auto;
         overflow: auto;
 
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and ((min-width: 992px) and (max-width: 1200px)) {
     .container{
         .card-container{
             .about-me-card{
-                display: flex;
-                flex-direction: row;
-
                 .social-icon{
                     padding: 26px 20px;
                 }

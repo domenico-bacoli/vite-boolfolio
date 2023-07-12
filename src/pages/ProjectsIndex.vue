@@ -82,4 +82,47 @@ export default {
     align-items: center;
 }
 
+
+@media screen and (max-width: 767px) {
+    .container{
+        padding-left: 10px;
+        padding-right: 10px;
+
+        h1{
+            padding: 20px 0;
+            margin-left: 20px;
+        }
+    
+        .card-container{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            gap: 50px;
+            overflow: auto;
+            padding: 20px 30px 50px;
+        }
+    }
+}
+
+@media screen and ((min-width: 768px) and (max-width: 991px)) {
+
+    .container{
+
+        h1{
+            padding: 20px 0;
+            margin-left: 30px;
+        }
+    
+        .card-container{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            gap: 40px;
+            overflow: auto;
+            padding: 20px 40px 50px;
+        }
+    }    
+
+}
+
 </style>

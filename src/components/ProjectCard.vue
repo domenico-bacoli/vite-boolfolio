@@ -148,4 +148,22 @@ export default {
         }
     }
 }
+
+@media screen and (max-width: 767px) {
+    .card-project{
+        width: 100%;
+
+    }    
+}
+
+
+
+@media screen and ((min-width: 768px) and (max-width: 991px)) {
+
+    .card-project{
+        width: calc(100% / 2 - ( 40px / 2 ));
+
+    }   
+
+}
 </style>
